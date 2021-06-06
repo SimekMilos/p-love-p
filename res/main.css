@@ -1,0 +1,249 @@
+@charset "utf-8";
+
+/* GENERAL */
+
+:root {
+    overflow: hidden;
+}
+
+body {
+    background: black;
+}
+
+.background {
+    width: 100vw;
+    height: 100vh;
+
+    background:
+        radial-gradient(62vmin, transparent, 60%, black 99%),
+        center / 185vmin no-repeat url(background.jpg),
+        black;
+}
+
+
+
+
+
+
+/* ===== GRANDIOUS BUTTON ===== */
+
+.grand-button {
+    /* Position */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* Size */
+    width: 200px;
+    height: 75px;
+
+    /* Style */
+    border: 2px solid red;
+    border-radius: 25px;
+    box-shadow:
+        0 0 0 2px black,
+        0 0 0 6px hsl(0, 100%, 35%),
+        0 0 4px 8px hsl(0, 100%, 35%);
+        /*0 0 20px 16px #FFF6*/
+        /*0 0 20px 16px rgba(100%, 100%, 100%, 0.3);*/
+
+    /* Text */
+    text-align: center;
+    line-height: 71px;
+
+    color: hsl(0, 100%, 40%);
+    font-size: 22px;
+    text-decoration: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Push effect */
+.grand-button:active {
+    transform: translate(-50%, -50%) scale(.9);
+    /*transition: transform .1s;*/
+}
+
+/* Disappear effect */
+.grand-button.clicked {
+    transform: translate(-50%, -50%) scale(10, 0);
+    transform-origin: center;
+    filter: blur(10px);
+    opacity: 0;
+
+    transition:
+        transform .8s cubic-bezier(.04,.81,.67,.7),
+        blur .8s ease-in,
+        opacity .8s ease-in;
+}
+
+
+
+
+/* ===== P heart P ===== */
+
+@font-face {
+    font-family: "Jost";
+    src: url("Jost.ttf") format("truetype");
+}
+
+.pp-love-box {
+    /* Position */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* Size */
+    width: 100vmin;
+    height: 100vmin;
+
+    /* Text */
+    font-family: 'Jost', sans-serif;
+    font-weight: 450;
+    line-height: 1;
+    font-size: 52vmin;
+}
+
+.p-container-first,
+.p-container-second {
+    /* Position */
+    position: absolute;
+    --top: 25%;
+    --left: 18%;
+    --intro-animation-travel: 10%;
+}
+
+.p-container-first {
+    /* Position */
+    transform: translate(-50%, -50%);
+    top: var(--top);
+    left: var(--left);
+}
+
+.p-container-second {
+    /* Position */
+    transform: translate(50%, 50%);
+    bottom: var(--top);
+    right: var(--left);
+}
+
+:is(.p-container-first, .p-container-second)::before {
+    /* Position */
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+
+    /* Text stroke */
+    --shadow-size: .3vmin;
+    --shadow-color: #FFF6;
+    text-shadow:
+        var(--shadow-size) 0 var(--shadow-color),
+        calc(-1 * var(--shadow-size)) 0px var(--shadow-color),
+        0 var(--shadow-size) var(--shadow-color),
+        0 calc(-1 * var(--shadow-size)) var(--shadow-color),
+        var(--shadow-size) var(--shadow-size) var(--shadow-color),
+        calc(-1 * var(--shadow-size)) calc(-1 * var(--shadow-size)) var(--shadow-color),
+        calc(-1 * var(--shadow-size)) var(--shadow-size) var(--shadow-color),
+        var(--shadow-size) calc(-1 * var(--shadow-size)) var(--shadow-color);
+
+    content: attr(data-text);
+}
+
+.p {
+    /* Position */
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+
+    /* Text styling */
+    background:
+        radial-gradient(circle 132vmin at 170% 140%, transparent 49.9%, #FFFE 50%, transparent 80%),
+        linear-gradient(to top, #FFF4 15%, transparent 80%),
+        black;
+
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.heart {
+    /* Position */
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+
+    /* Size */
+    width: 45vmin;
+}
+
+
+/* --- Intro transition --- */
+
+.background,
+.p-container-first,
+.p-container-second,
+.heart {
+    opacity: 0;
+    --p-offset: 4.3s;
+}
+
+/* 1. Background */
+
+.background {
+    animation: fade-in 4s .3s forwards ease-out;
+}
+
+/* 2. P slide in */
+
+.p-container-first {
+    animation:
+        fade-in 3s var(--p-offset) forwards ease-in,
+        p-first-slide-in 3s var(--p-offset) forwards ease-out;
+}
+
+.p-container-second {
+    animation:
+        fade-in 3s calc(var(--p-offset) + 3s) forwards ease-in-out,
+        p-second-slide-in 3s calc(var(--p-offset) + 3s) forwards ease-out;
+}
+
+/* 3. heart fade in  */
+
+.heart {
+    animation: fade-in 6s calc(var(--p-offset) + 6s + .7s) forwards ease-in-out;
+}
+
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes p-first-slide-in {
+    from {
+        top: calc(var(--top) - var(--intro-animation-travel));
+    }
+    to {
+        top: var(--top);
+    }
+}
+
+@keyframes p-second-slide-in {
+    from {
+        bottom: calc(var(--top) - var(--intro-animation-travel));
+    }
+    to {
+        bottom: var(--top);
+    }
+}
