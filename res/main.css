@@ -203,13 +203,13 @@ body {
 .p-container-first {
     animation:
         fade-in 3s var(--p-offset) forwards ease-in,
-        p-first-slide-in 3s var(--p-offset) forwards ease-out;
+        p-top-slide-in 3s var(--p-offset) forwards ease-out;
 }
 
 .p-container-second {
     animation:
         fade-in 3s calc(var(--p-offset) + 3s) forwards ease-in-out,
-        p-second-slide-in 3s calc(var(--p-offset) + 3s) forwards ease-out;
+        p-bottom-slide-in 3s calc(var(--p-offset) + 3s) forwards ease-out;
 }
 
 /* 3. heart fade in  */
@@ -228,7 +228,7 @@ body {
     }
 }
 
-@keyframes p-first-slide-in {
+@keyframes p-top-slide-in {
     from {
         top: calc(var(--top) - var(--intro-animation-travel));
     }
@@ -237,7 +237,7 @@ body {
     }
 }
 
-@keyframes p-second-slide-in {
+@keyframes p-bottom-slide-in {
     from {
         bottom: calc(var(--top) - var(--intro-animation-travel));
     }
