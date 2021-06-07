@@ -31,6 +31,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transform-origin: center;
 
     /* Size */
     width: 200px;
@@ -65,7 +66,6 @@ body {
 /* Disappear effect */
 .grand-button.clicked {
     transform: translate(-50%, -50%) scale(10, 0);
-    transform-origin: center;
     filter: blur(10px);
     opacity: 0;
 
