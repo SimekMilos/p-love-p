@@ -45,8 +45,6 @@ body {
         0 0 0 2px black,
         0 0 0 6px hsl(0, 100%, 35%),
         0 0 4px 8px hsl(0, 100%, 35%);
-        /*0 0 20px 16px #FFF6*/
-        /*0 0 20px 16px rgba(100%, 100%, 100%, 0.3);*/
 
     /* Text */
     text-align: center;
@@ -64,7 +62,7 @@ body {
 /* Push effect */
 .grand-button:active {
     transform: translate(-50%, -50%) scale(.9);
-    /*transition: transform .1s;*/
+    transition: transform .05s;
 }
 
 /* Disappear effect */
@@ -190,26 +188,26 @@ body {
 .p-container-first,
 .p-container-second,
 .heart {
-    opacity: 0;
+    /*opacity: 0;*/
     --p-offset: 4.3s;
 }
 
 /* 1. Background */
 
 .background {
-    animation: fade-in 4s .3s forwards ease-out;
+    /*animation: fade-in 4s .3s forwards ease-out;*/
 }
 
 /* 2. P slide in */
 
 .p-container-first {
-    animation:
+    /*animation:*/
         fade-in 3s var(--p-offset) forwards ease-in,
         p-first-slide-in 3s var(--p-offset) forwards ease-out;
 }
 
 .p-container-second {
-    animation:
+    /*animation:*/
         fade-in 3s calc(var(--p-offset) + 3s) forwards ease-in-out,
         p-second-slide-in 3s calc(var(--p-offset) + 3s) forwards ease-out;
 }
@@ -217,7 +215,7 @@ body {
 /* 3. heart fade in  */
 
 .heart {
-    animation: fade-in 6s calc(var(--p-offset) + 6s + .7s) forwards ease-in-out;
+    /*animation: fade-in 6s calc(var(--p-offset) + 6s + .7s) forwards ease-in-out;*/
 }
 
 
