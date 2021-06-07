@@ -23,8 +23,6 @@ body {
 
 
 
-
-
 /* ===== GRANDIOUS BUTTON ===== */
 
 .grand-button {
@@ -129,6 +127,7 @@ body {
     right: var(--left);
 }
 
+/* Outline for P */
 :is(.p-container-first, .p-container-second)::before {
     /* Position */
     position: absolute;
@@ -182,7 +181,9 @@ body {
 }
 
 
-/* --- Intro transition --- */
+
+
+/* === Intro transition === */
 
 .background,
 .p-container-first,
