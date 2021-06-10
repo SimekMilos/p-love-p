@@ -184,42 +184,43 @@ body {
 
 /* === Intro transition === */
 
-.background,
 .p-container-first,
 .p-container-second,
 .heart {
-    opacity: 0;
     --p-offset: 4.3s;
 }
 
 /* 1. Background */
 
 .background {
-    animation: fade-in 4s .3s forwards ease-out;
+    animation: fade-in 4s .3s both ease-out;
 }
 
 /* 2. P slide in */
 
 .p-container-first {
     animation:
-        fade-in 3s var(--p-offset) forwards ease-in,
+        fade-in 3s var(--p-offset) both ease-in,
         p-top-slide-in 3s var(--p-offset) ease-out;
 }
 
 .p-container-second {
     animation:
-        fade-in 3s calc(var(--p-offset) + 3s) forwards ease-in-out,
+        fade-in 3s calc(var(--p-offset) + 3s) both ease-in-out,
         p-bottom-slide-in 3s calc(var(--p-offset) + 3s) ease-out;
 }
 
 /* 3. heart fade in  */
 
 .heart {
-    animation: fade-in 6s calc(var(--p-offset) + 6s + .7s) forwards ease-in-out;
+    animation: fade-in 6s calc(var(--p-offset) + 6s + .7s) both ease-in-out;
 }
 
 
 @keyframes fade-in {
+    from {
+        opacity: 0;
+    }
     to {
         opacity: 1;
     }
